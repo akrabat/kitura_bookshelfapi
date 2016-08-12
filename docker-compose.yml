@@ -1,0 +1,7 @@
+app:
+    image: ibmcom/swift-ubuntu
+    ports:
+      - "8090:8090"
+    volumes:
+      - .:/root/BookshelfAPI
+    command: bash -c "make clean -C BookshelfAPI && make -C BookshelfAPI && BookshelfAPI/.build/debug/BookshelfAPI"
