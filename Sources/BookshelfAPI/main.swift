@@ -1,4 +1,5 @@
 import CouchDB
+import DotEnv
 import Foundation
 import HeliumLogger
 import Kitura
@@ -12,14 +13,16 @@ setbuf(stdout, nil)
 Log.logger = HeliumLogger()
 
 // Database connection
+let env = DotEnv()
+
 let connectionProperties = ConnectionProperties(
-    host: "localhost",
-    port: 5984,
-    secured: false,
-    username: "rob",
-    password: "123456"
+    host: env.get("DB_HOST") ?? "localhost",
+    port: Int16(env.getAsInt("DB_PORT") ?? 5984),
+    secured: env.getAsBool("DB_HTTPS") ?? false,
+    username: env.get("DB_USERNAME") ?? "rob",
+    password: env.get("DB_PASSWORD") ?? "123456"
 )
-let databaseName = "bookshelf_db"
+let databaseName = env.get("DB_NAME") ?? "bookshelf_db"
 
 let client = CouchDBClient(connectionProperties: connectionProperties)
 let database = client.database(databaseName)
@@ -36,5 +39,6 @@ router.get("/books", handler: listBooksHandler)
 
 // Start server
 Log.info("Starting server")
-Kitura.addHTTPServer(onPort: 8090, with: router)
+let port = env.getAsInt("APP_PORT") ?? 8090
+Kitura.addHTTPServer(onPort: port, with: router)
 Kitura.run()
