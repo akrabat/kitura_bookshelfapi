@@ -1,0 +1,31 @@
+{
+  "docs": [
+    {"type": "book", "title": "Gregor the Overlander", "author": "Suzanne Collins", "isbn": "9780439678131"},
+    {"type": "book", "title": "Gregor and the Prophecy of Bane", "author": "Suzanne Collins", "isbn": "9780439650762"},
+    {"type": "book", "title": "Gregor and the Curse of the Warmbloods", "author": "Suzanne Collins", "isbn": "9780439656245"},
+    {"type": "book", "title": "Gregor and the Marks of Secret", "author": "Suzanne Collins", "isbn": "9780439791465"},
+    {"type": "book", "title": "Gregor and the Code of Claw", "author": "Suzanne Collins", "isbn": "9780439791441"},
+    {"type": "book", "title": "The Hunger Games", "author": "Suzanne Collins", "isbn": "9780439023528"},
+    {"type": "book", "title": "Catching Fire", "author": "Suzanne Collins", "isbn": "9780545227247"},
+    {"type": "book", "title": "Mockingjay", "author": "Suzanne Collins", "isbn": "9780439023511"},
+    {"type": "book", "author": "Anne McCaffrey", "title": "Dragonflight",  "isbn": "9780345335463"},
+    {"type": "book", "author": "Anne McCaffrey", "title": "Dragonquest",  "isbn": "9780345022455"},
+    {"type": "book", "author": "Anne McCaffrey", "title": "The White Dragon",  "isbn": "9780345275677"},
+    {"type": "book", "author": "Anne McCaffrey", "title": "Dragonsong",  "isbn": "9780689305078"},
+    {"type": "book", "author": "Anne McCaffrey", "title": "Dragonsinger",  "isbn": "9780689305702"},
+    {"type": "book", "author": "Anne McCaffrey", "title": "Dragondrums",  "isbn": "9780689306853"},
+    {"type": "book", "author": "Peter F. Hamilton", "title": "Mindstar Rising",  "isbn": "9780330537742"},
+    {"type": "book", "author": "Peter F. Hamilton", "title": "A Quantum Murder",  "isbn": "9780330537759"},
+    {"type": "book", "author": "Peter F. Hamilton", "title": "The Nano Flower",  "isbn": "9780330537810"},
+    {"type": "book", "author": "Peter F. Hamilton", "title": "The Reality Dysfunction",  "isbn": "9781447208570"},
+    {"type": "book", "author": "Peter F. Hamilton", "title": "The Neutronium Alchemist",  "isbn": "9781447208587"},
+    {"type": "book", "author": "Peter F. Hamilton", "title": "The Naked God",  "isbn": "9781447208594"},
+    {"type": "book", "author": "Peter F. Hamilton", "title": "Misspent Youth",  "isbn": "9781447224082"},
+    {"type": "book", "author": "Peter F. Hamilton", "title": "Pandora's Star",  "isbn": "9781447279662"},
+    {"type": "book", "author": "Peter F. Hamilton", "title": "Judas Unchained",  "isbn": "9781447279679"},
+    {"type": "book", "author": "Peter F. Hamilton", "title": "The Dreaming Void",  "isbn": "9781447208563"},
+    {"type": "book", "author": "Peter F. Hamilton", "title": "The Temporal Void",  "isbn": "9780330507882"},
+    {"type": "book", "author": "Peter F. Hamilton", "title": "The Evolutionary Void",  "isbn": "9780330443173"},
+    {"type": "book", "author": "Peter F. Hamilton", "title": "The Abyss Beyond Dreams",  "isbn": "9780230769465"}
+  ]
+}

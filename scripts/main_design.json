@@ -1,0 +1,9 @@
+{
+  "id": "_design/main_design",
+  "views": {
+    "all_books": {
+      "map" : "function(doc) {  if (doc.type == 'book') { emit([doc.author, doc.title], doc); } }"
+    }
+  },
+  "language": "javascript"
+}
