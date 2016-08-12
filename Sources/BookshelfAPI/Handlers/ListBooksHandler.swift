@@ -8,10 +8,19 @@ func listBooksHandler(request: RouterRequest, response: RouterResponse, next: ()
     if let books = booksMapper.fetchAll() {
         var json = JSON([:])
 
-        json["books"] = JSON(books.map { $0.toJSON() })
+        let baseURL = "http://" + (request.headers["Host"] ?? "localhost:8090")
+        let links = JSON(["self": baseURL + "/books"])
+        json["_links"] = links
+
+        json["_embedded"] = JSON(books.map {
+            var book = $0.toJSON()
+            book["_links"] = JSON(["self": baseURL + "/books/" + $0.id])
+            return book
+        })
         json["count"].int = books.count
 
         response.status(.OK).send(json: json)
+        response.headers["Content-Type"] = "applicaion/hal+json"
     } else {
         response.status(.internalServerError).send(json: JSON(["error": "Could not service request"]))
     }

@@ -36,6 +36,7 @@ router.get("/") { _, response, next in
 }
 
 router.get("/books", handler: listBooksHandler)
+router.get("/books/:id", handler: getBookHandler)
 
 // Start server
 Log.info("Starting server")
