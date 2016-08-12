@@ -7,6 +7,7 @@ class BooksMapper {
 
     enum RetrieveError: Error {
         case NotFound
+        case Invalid(String)
         case Unknown
     }
 
@@ -79,6 +80,48 @@ class BooksMapper {
 
         if book == nil {
             throw error
+        }
+
+        return book!
+    }
+
+    ///
+    /// Add a book to the database
+    ///
+    func insertBook(json: JSON) throws -> Book {
+        // validate required values
+        guard let title = json["title"].string,
+            let author = json["author"].string else {
+            throw RetrieveError.Invalid("A Book must have a title and an author")
+        }
+        // optional values
+        let isbn = json["isbn"].stringValue
+
+        // create a JSON object to store which contains just the properties we need
+        let bookJson = JSON([
+            "type": "book",
+            "author": author,
+            "title": title,
+            "isbn": isbn,
+        ])
+
+        var book: Book?
+        database.create(bookJson) { (id, revision, document, err) in
+            if let id = id, let revision = revision, err == nil {
+                Log.info("Created book \(title) with id of \(id)")
+                let bookId = "\(id):\(revision)"
+                book = Book(id: bookId, title: title, author: author, isbn: isbn)
+                return
+            }
+
+            Log.error("Oops something went wrong; could not create book.")
+            if let err = err {
+                Log.info("Error: \(err.localizedDescription). Code: \(err.code)")
+            }
+        }
+
+        if book == nil {
+            throw RetrieveError.Unknown
         }
 
         return book!
