@@ -38,15 +38,15 @@ fi
 
 
 # delete and create database to ensure it's empty
-curl -X DELETE $url/$database -u $username:$password
-curl -X PUT $url/$database -u $username:$password
+curl -s -X DELETE $url/$database -u $username:$password
+curl -s -X PUT $url/$database -u $username:$password
 
 # Upload design document
-curl -X PUT "$url/$database/_design/main_design" -u $username:$password \
+curl -s -X PUT "$url/$database/_design/main_design" -u $username:$password \
     -d @$current_dir/main_design.json
 
 # Create data
-curl -H "Content-Type: application/json" -d @$current_dir/books.json \
+curl -s -H "Content-Type: application/json" -d @$current_dir/books.json \
     -X POST $url/$database/_bulk_docs -u $username:$password
 
 echo
