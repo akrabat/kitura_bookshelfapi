@@ -7,7 +7,7 @@ db:
     - COUCHDB_PASSWORD=123456
 
 seed-db:
-  image: ibmcom/swift-ubuntu
+  image: ibmcom/kitura-ubuntu
   volumes:
     - .:/root/BookshelfAPI
   command: BookshelfAPI/scripts/seed_couchdb.sh --username=rob --password=123456 --url=http://db:5984
@@ -15,7 +15,7 @@ seed-db:
     - db
 
 app:
-  image: ibmcom/swift-ubuntu
+  image: ibmcom/kitura-ubuntu
   ports:
     - "8090:8090"
   volumes:
