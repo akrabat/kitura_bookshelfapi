@@ -20,7 +20,7 @@ func listBooksHandler(request: RouterRequest, response: RouterResponse, next: ()
         json["count"].int = books.count
 
         response.status(.OK).send(json: json)
-        response.headers["Content-Type"] = "applicaion/hal+json"
+        response.headers["Content-Type"] = "application/hal+json"
     } else {
         response.status(.internalServerError).send(json: JSON(["error": "Could not service request"]))
     }
