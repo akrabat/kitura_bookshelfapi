@@ -26,7 +26,7 @@ func createBookHandler(request: RouterRequest, response: RouterResponse, next: (
         json["_links"] = links
 
         response.status(.OK).send(json: json)
-        response.headers["Content-Type"] = "applicaion/hal+json"
+        response.headers["Content-Type"] = "application/hal+json"
     } catch BooksMapper.RetrieveError.Invalid(let message) {
         response.status(.badRequest).send(json: JSON(["error": message]))
     } catch {
