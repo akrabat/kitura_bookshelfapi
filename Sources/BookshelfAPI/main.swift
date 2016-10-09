@@ -35,6 +35,17 @@ router.get("/") { _, response, next in
     next()
 }
 
+router.get("/ping") { _, response, next in
+    // see http://www.unicode.org/reports/tr35/tr35-31/tr35-dates.html#Date_Format_Patterns
+    let date = Date()
+    let formatter = DateFormatter()
+    formatter.locale = Locale(identifier: "en_GB")
+    formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+    response.status(.OK).send(json: JSON(["ack" : formatter.string(from: date)]))
+
+    next()
+}
+
 router.get("/books", handler: listBooksHandler)
 router.get("/books/:id", handler: getBookHandler)
 router.post("/books", handler: createBookHandler)
